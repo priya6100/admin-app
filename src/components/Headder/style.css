@@ -29,3 +29,9 @@
     background-color: #000000;
     color: #cb8364;
 }
+
+@media screen and (max-width: 765px) {
+    .slider {
+        position: relative;
+    }
+}

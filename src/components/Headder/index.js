@@ -25,6 +25,16 @@ const Header = (props) => {
            <IoIosPower /> 
           </span>
         </li>
+        <li className="nav-item">
+          <NavLink to ="/admin/signin" className="nav-link">
+            <IoIosLogIn /> Admin Signin
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink to ="/admin/signup" className="nav-link">
+            <IoIosPerson /> Admin Signup
+          </NavLink>
+        </li>
       </Nav>
     );
   };

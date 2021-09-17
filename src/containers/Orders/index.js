@@ -128,6 +128,8 @@ const Orders = (props) => {
               margin: " 100px",
               display: "flex",
               alignItems: "center",
+              justifyContent: "center",
+              flexFlow: "wrap"
              
             }}
           >
@@ -157,6 +159,7 @@ const Orders = (props) => {
                         style={{
                           padding: "0 50px",
                           boxSizing: "border-box",
+                          margin: "5px auto"
                         }}
                       >
                         <select onChange={(e) => setType(e.target.value)}>
@@ -178,9 +181,10 @@ const Orders = (props) => {
               style={{
                 padding: "0 50px",
                 boxSizing: "border-box",
+                margin: "5px auto"
               }}
             >
-              <button className="odButton" onClick={() => onOrderUpdate(orderItem._id)}>
+              <button className="odButton" onClick={() => onOrderUpdate(orderItem._id)} style={{margin: "5px auto"}}>
                 confirm
               </button>
             </div>

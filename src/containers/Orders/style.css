@@ -1,6 +1,7 @@
 .orderTrack{
     width: 500px;
     display: flex;
+    margin: 5px auto 20px;
 }
 .orderStatus{
     width: 33.33%;
@@ -36,6 +37,17 @@
     position: absolute;
     top: -26px;
     transform: translateX(-50%);
+}
+@media screen and (max-width: 768px) {
+    .orderStatus .status {
+        display: none;
+    }
+    .orderStatus.active .status {
+        display: initial;
+    }
+    .sidebar {
+        position: relative;
+    }
 }
 
 .title{

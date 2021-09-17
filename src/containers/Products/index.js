@@ -154,7 +154,7 @@ const Products = (props) => {
                   <td>{product.skuCode}</td>
                   <td>{product.price}</td>
                   <td>{product.quantity}</td>
-                  <td>{product.category.name}</td>
+                  {/* <td>{product.category.name}</td> */}
                   <td className="action-btn-container">
                     <button className="info-product" onClick={() => showProductDetailsModal(product)}>
                       info
