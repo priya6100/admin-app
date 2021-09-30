@@ -20,7 +20,11 @@ const Products = (props) => {
   const [searchBy, setSearchBy] = useState("name");
   const [skuCode, setSku] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [sizeSquantity, setSizeSQuantity] = useState("");
+  const [sizeMquantity, setSizeMQuantity] = useState("");
+  const [sizeXLquantity, setSizeXLQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const [size, setSize] = useState("");
   const [description, setDescription] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [productPictures, setProductPictures] = useState([]);
@@ -42,7 +46,11 @@ const Products = (props) => {
         setName('');
         setSku('');
         setQuantity('');
+        setSizeSQuantity('');
+        setSizeXLQuantity('');
+        setSizeMQuantity('');
         setPrice('');
+        setSize('');
         setDescription('');
         setCategoryId('')
     }
@@ -71,6 +79,10 @@ const Products = (props) => {
     form.append("name", name);
     form.append("skuCode", skuCode);
     form.append("quantity", quantity);
+    form.append("sizeSquantity", sizeSquantity);
+    form.append("sizeMquantity", sizeMquantity);
+    form.append("sizeXLquantity", sizeXLquantity);
+    form.append("size",size);
     form.append("price", price);
     form.append("description", description);
     form.append("category", categoryId);
@@ -81,13 +93,28 @@ const Products = (props) => {
     }else if(skuCode == ""){
       alert("Sku code is required");
       return;
-    }else if(quantity == ""){
-      alert("quantity is required");
+    }
+    // else if(quantity == ""){
+    //   alert("quantity is required");
+    //   return;
+    // }
+    else if(sizeSquantity === ""){
+      alert("quantity of S size is required");
+      return;
+    }else if(sizeMquantity === ""){
+      alert("quantity of M size is required");
+      return;
+    }else if(sizeXLquantity === ""){
+      alert("quantity of XL size is required");
       return;
     }else if(price == ""){
       alert("Price is required");
       return;
     }
+    // else if(size == ""){
+    //   alert("size is required");
+    //   return;
+    // }
     else if(description == ""){
       alert("description is required");
       return;
@@ -130,6 +157,7 @@ const Products = (props) => {
             <th>Name</th>
             <th>SKU Code</th>
             <th>Price</th>
+            <th>Size</th>
             <th>Quantity</th>
             <th>Category</th>
             <th>Actions</th>
@@ -153,7 +181,8 @@ const Products = (props) => {
                   <td>{product.name}</td>
                   <td>{product.skuCode}</td>
                   <td>{product.price}</td>
-                  <td>{product.quantity}</td>
+                  <td>{product.size}</td>
+                  <td>{`${product.sizeSquantity}+${product.sizeMquantity}+${product.sizeXLquantity}`}</td>
                   {/* <td>{product.category.name}</td> */}
                   <td className="action-btn-container">
                     <button className="info-product" onClick={() => showProductDetailsModal(product)}>
@@ -211,6 +240,26 @@ const Products = (props) => {
           placeholder={`Price`}
           onChange={(e) => setPrice(e.target.value)}
         />
+        <div style={{display: "flex"}}>
+        <Input
+          label="S Size"
+          value={sizeSquantity}
+          placeholder={`Quantity`}
+          onChange={(e) => setSizeSQuantity(e.target.value)}
+        />
+        <Input
+          label="M Size"
+          value={sizeMquantity}
+          placeholder={`Quantity`}
+          onChange={(e) => setSizeMQuantity(e.target.value)}
+        />
+        <Input
+          label="XL Size"
+          value={sizeXLquantity}
+          placeholder={`Quantity`}
+          onChange={(e) => setSizeXLQuantity(e.target.value)}
+        />
+        </div>
         <Input
           label="Description"
           value={description}
@@ -277,7 +326,11 @@ const Products = (props) => {
         <Row>
           <Col md="6">
             <label className="key">Quantity</label>
-            <p className="value">{productDetails.quantity}</p>
+            <p className="value">{`${productDetails.sizeSquantity}+${productDetails.sizeMquantity}+${productDetails.sizeXLquantity}`}</p>
+          </Col>
+          <Col md="6">
+            <label className="key">Size</label>
+            <p className="value">{productDetails.size}</p>
           </Col>
           <Col md="6">
             <label className="key">Category</label>
@@ -343,7 +396,7 @@ const Products = (props) => {
         </Row>
             
           )
-        } */}
+        }  */}
     
         {/* <Row>
           <Col md={12}>
