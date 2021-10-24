@@ -58,7 +58,7 @@ const Orders = (props) => {
          <Input
      
      value={searchTerm}
-     placeholder={`search`}
+     placeholder={``}
      onChange={(e) => setSearchTerm(e.target.value)}
    />
          </div>
